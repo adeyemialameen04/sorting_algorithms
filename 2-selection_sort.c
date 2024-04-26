@@ -1,9 +1,8 @@
 #include "sort.h"
 #include <stdlib.h>
-#include <time.h>
 
 /**
-	* selection_sort - Sorts an array with the selection sort algo.
+	* selection_sort - Sorts an array with selection sort.
 * @array: The array to be sorted.
 * @size: The size of the array.
 * Return: Nothing.
@@ -12,7 +11,7 @@ void selection_sort(int *array, size_t size)
 {
 	size_t i, j;
 
-	if (array == NULL || size < 2)
+	if (array == NULL)
 		return;
 
 	for (i = 0; i < size - 1; i++)
@@ -23,15 +22,15 @@ void selection_sort(int *array, size_t size)
 		{
 			if (array[j] < array[min_idx])
 				min_idx = j;
+		}
 
-			if (min_idx != i)
-			{
-				int tmp = array[i];
+		if (min_idx != i)
+		{
+			int tmp = array[i];
 
-				array[i] = array[min_idx];
-				array[min_idx] = tmp;
-				print_array(array, size);
-			}
+			array[i] = array[min_idx];
+			array[min_idx] = tmp;
+			print_array(array, size);
 		}
 	}
 }
