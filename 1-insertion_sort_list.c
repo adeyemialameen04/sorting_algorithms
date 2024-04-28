@@ -1,23 +1,40 @@
 #include "sort.h"
 
+/**
+ * insertion_sort_list - Sorts a dll using insertion sort.
+ * @list: The list to be sorted.
+ * Return: Nothing.
+ */
 void insertion_sort_list(listint_t **list)
 {
+	listint_t *curr = (*list)->next;
+
 	if (*list == NULL || list == NULL || (*list)->next == NULL)
 		return;
 
-	listint_t *curr = (*list)->next;
 	while (curr != NULL)
 	{
 		listint_t *point = curr;
-		int value = curr->n;
+		listint_t *prev = point->prev;
+		/*int value = curr->n;*/
 
-		while (point->prev != NULL && point->prev->n > value)
+		while (prev != NULL && prev->n > point->n)
 		{
-			point->n = point->prev->n;
-			point = point->prev;
+			if (point->next != NULL)
+				point->next->prev = prev;
+			prev->next = point->next;
+			point->next = prev;
+			point->prev = prev->prev;
+			prev->prev = point;
+
+			if (point->prev != NULL)
+				point->prev->next = point;
+			else
+				*list = point;
+
+			prev = point->prev;
 		}
 
-		point->n = value;
 		print_list(*list);
 		curr = curr->next;
 	}
