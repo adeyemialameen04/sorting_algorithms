@@ -10,9 +10,9 @@ void reursion(int *array, size_t size, int left, int right);
 void quick_sort(int *array, size_t size);
 
 /**
- * swap - Swap two integers in an array.
- * @a: The first integer to swap.
- * @b: The second integer to swap.
+ * swap - Swap two nums.
+ * @a: First num.
+ * @b: Second num.
  */
 void swap(int *a, int *b)
 {
@@ -62,12 +62,10 @@ int partition(int *array, size_t size, int left, int right)
 
 /**
  * reursion - Implement the quicksort algorithm through recursion.
- * @array: An array of integers to sort.
- * @size: The size of the array.
- * @left: The starting index of the array partition to order.
+ * @array: The array to be sorted.
+ * @size: Size of the array.
+ * @left: Starting index of the array partition to order.
  * @right: The ending index of the array partition to order.
- *
- * Description: Uses the Lomuto partition scheme.
  */
 void reursion(int *array, size_t size, int left, int right)
 {
@@ -82,13 +80,9 @@ void reursion(int *array, size_t size, int left, int right)
 }
 
 /**
- * quick_sort - Sort an array of integers in ascending
- *              order using the quicksort algorithm.
- * @array: An array of integers.
- * @size: The size of the array.
- *
- * Description: Uses the Lomuto partition scheme. Prints
- *              the array after each swap of two elements.
+ * quick_sort - Sorts an array with quick sort algo.
+ * @array: The array to be sorted.
+ * @size: Size of the array.
  */
 void quick_sort(int *array, size_t size)
 {
